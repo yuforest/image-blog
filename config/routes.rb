@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'blogs#index'
+  
+  resources :home
+  root to: 'home#index'
   resources :blogs do
     collection do
       post :confirm
