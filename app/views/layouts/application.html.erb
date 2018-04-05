@@ -30,10 +30,21 @@
           <li><a href="/blogs">一覧</a></li>
           <li><a href="/blogs/new">新規作成</span></a></li>
         </ul>
+        <ul class="nav navbar-nav pull-right">
+          <% if logged_in? %>
+            <li><%= link_to "Profile", user_path(current_user.id) %></li>
+            <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Sign up", new_user_path %></li>
+            <li><%= link_to "Login", new_session_path %></li>
+          <% end %>
+        </ul>
       </div>
-    </nav>
     
     </header>
+    <% flash.each do |key, value| %>
+      <%=  content_tag(:div, value, class: "#{key}") %>
+    <% end %>
     
    
     <%= yield %>

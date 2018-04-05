@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :non_user_redirect_to_login, only: [:new, :edit, :show]
   def index
     @blogs = Blog.all
   end
