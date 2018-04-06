@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create,:destroy]
   resources :home
+  resources :favorites, only: [:create, :destroy]
   root to: 'home#index'
   resources :blogs do
     collection do
