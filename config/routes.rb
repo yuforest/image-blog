@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :home
   resources :favorites, only: [:create, :destroy]
   root to: 'home#index'
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
   resources :blogs do
     collection do
       post :confirm
