@@ -42,6 +42,7 @@
       </div>
     
     </header>
+    <div class="contents-wrapper">
     <div class="flash_notice">
       <% flash.each do |key, value| %>
         <%=  content_tag(:div, value, class: "#{key}") %>
@@ -50,7 +51,7 @@
     
    
     <%= yield %>
-    
+    </div>
     <footer>
       <p>©Copyright Reserved Yuta Omori 2018</p>
     </footer>
